@@ -9,7 +9,7 @@
     ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/two-players-one-horse",
-        "sources": "https://www.curseforge.com/minecraft/mc-mods/two-players-one-horse"
+        "sources": "https://github.com/Beethoven92/TwoPlayersOneHorse"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",

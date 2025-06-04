@@ -33,13 +33,13 @@ public abstract class TwoPlayersOneHorseLocalPlayerMixin extends AbstractClientP
     @Inject(at = @At("HEAD"), method = "sendOpenInventory", cancellable = true)
     private void openDefaultPlayerInventoryForSecondPassenger(CallbackInfo info)
     {
-        // Check if the player who is opening the inventory is mounted on a vehicle
+        // Check if the player who is opening the inventory is on a mount
         if (((LocalPlayer)(Object)this).isPassenger())
         {
             Entity mount = ((LocalPlayer)(Object)this).getVehicle();
 
             // Check if the player is the controlling passenger.
-            // If not, that player will open the default player inventory instead of the mount inventory
+            // If not, that player will open the default player inventory instead of the horse inventory
             if (mount instanceof AbstractHorse &&
                 mount.hasControllingPassenger() &&
                 !(mount.getControllingPassenger().is((LocalPlayer)(Object)this)))
