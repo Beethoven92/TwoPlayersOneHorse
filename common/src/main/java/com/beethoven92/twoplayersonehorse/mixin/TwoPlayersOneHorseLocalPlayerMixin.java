@@ -30,6 +30,7 @@ public abstract class TwoPlayersOneHorseLocalPlayerMixin extends AbstractClientP
 
     // Prevent the second passenger of a mount from opening that mount inventory.
     // That is to avoid saddle/armor/chest slot modifications by the player who is not controlling the mount
+    // Works only with entities that extend the AbstractHorse class
     @Inject(at = @At("HEAD"), method = "sendOpenInventory", cancellable = true)
     private void openDefaultPlayerInventoryForSecondPassenger(CallbackInfo info)
     {
