@@ -26,6 +26,8 @@ public abstract class TwoPlayersOneHorseAbstractHorseMixin extends Animal
 
     @Shadow
     private float standAnimO;  // Keeps track of the horse standing/jumping animation.
+    @Shadow
+    protected abstract void doPlayerRide(Player player);
 
     protected TwoPlayersOneHorseAbstractHorseMixin(EntityType<? extends Animal> entityType, Level level)
     {
@@ -72,10 +74,10 @@ public abstract class TwoPlayersOneHorseAbstractHorseMixin extends Animal
         // Execute this only if the horse has already 1 (and only 1) passenger.
         // This allows for a second player to join the ride when right-clicking on the horse.
         // In any other case the vanilla right-click behaviour is applied.
-        // However, if there is already 1 player on the horse, the other player isn't allowed to put or remove that horse armor and saddle.
+        // However, if there is already 1 player on the horse, the other player isn't allowed to interact with the horse in other ways.
         if (((AbstractHorse)(Object)this).getPassengers().size() == 1)
         {
-            player.startRiding((AbstractHorse)(Object)this);
+            doPlayerRide(player);
             returnValue.setReturnValue(InteractionResult.sidedSuccess(((AbstractHorse)(Object)this).level().isClientSide));
         }
     }

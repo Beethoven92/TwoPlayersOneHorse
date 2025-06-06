@@ -12,11 +12,17 @@ public class TwoPlayersOneHorseCommon
     public static final String MOD_NAME = "TwoPlayersOneHorse";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
+    // Max number of riders allowed on entities that extend AbstractHorse
     public static final double MAX_PASSENGERS = 2;
+
+    // Vertical offsets to adjust player position when the horse is rearing or jumping
     public static final double FIRST_PASSENGER_VERTICAL_OFFSET = 0.0;
-    public static final double FIRST_PASSENGER_HORIZONTAL_OFFSET = 0.2;
     public static final double SECOND_PASSENGER_VERTICAL_OFFSET = -0.3;
+
+    // Horizontal offsets to adjust player position in case there are two players on the horse
+    public static final double FIRST_PASSENGER_HORIZONTAL_OFFSET = 0.2;
     public static final double SECOND_PASSENGER_HORIZONTAL_OFFSET = -0.6;
+
 
     public static void init()
     {
