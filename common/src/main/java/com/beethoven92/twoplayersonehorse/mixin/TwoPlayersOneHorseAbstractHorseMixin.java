@@ -53,6 +53,7 @@ public abstract class TwoPlayersOneHorseAbstractHorseMixin extends Animal
                     TwoPlayersOneHorseCommon.FIRST_PASSENGER_HORIZONTAL_OFFSET :
                     (TwoPlayersOneHorseCommon.SECOND_PASSENGER_HORIZONTAL_OFFSET
                             + (TwoPlayersOneHorseCommon.SECOND_PASSENGER_REARING_HORIZONTAL_ADJUSTMENT * standAnimO)));
+
             // Also move the second passenger a bit lower when the horse is standing/jumping so the player doesn't look suspended midair.
             // Multiply the offset (-0.3) by the value in standAnimO to smooth the vertical translation of the player
             verticalOffset = (passengerIndex == 0 ?
