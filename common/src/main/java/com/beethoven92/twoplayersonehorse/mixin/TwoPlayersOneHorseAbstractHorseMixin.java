@@ -50,7 +50,9 @@ public abstract class TwoPlayersOneHorseAbstractHorseMixin extends Animal
             // If there is more than one passenger, move the first one a bit ahead (+0.2) and place the second one behind (-0.6).
             horizontalOffset = (passengerIndex == 0 ?
                     TwoPlayersOneHorseCommon.FIRST_PASSENGER_HORIZONTAL_OFFSET :
-                    TwoPlayersOneHorseCommon.SECOND_PASSENGER_HORIZONTAL_OFFSET);
+                    (TwoPlayersOneHorseCommon.SECOND_PASSENGER_HORIZONTAL_OFFSET
+                            + (TwoPlayersOneHorseCommon.SECOND_PASSENGER_REARING_HORIZONTAL_ADJUSTMENT * standAnimO)));
+
             // Also move the second passenger a bit lower when the horse is standing/jumping so the player doesn't look suspended midair.
             // Multiply the offset (-0.3) by the value in standAnimO to smooth the vertical translation of the player
             verticalOffset = (passengerIndex == 0 ?
@@ -89,6 +91,6 @@ public abstract class TwoPlayersOneHorseAbstractHorseMixin extends Animal
         // Allowing 2 passengers on llamas would be quite useless since the player can't control it.
         if ((AbstractHorse)(Object)this instanceof Llama) return super.canAddPassenger(passenger);
 
-        return this.getPassengers().size() < TwoPlayersOneHorseCommon.MAX_PASSENGERS;
+        return ((AbstractHorse)(Object)this).getPassengers().size() < TwoPlayersOneHorseCommon.MAX_PASSENGERS;
     }
 }

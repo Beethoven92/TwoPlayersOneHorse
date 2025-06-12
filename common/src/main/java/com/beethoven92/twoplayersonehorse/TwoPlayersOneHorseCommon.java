@@ -23,6 +23,8 @@ public class TwoPlayersOneHorseCommon
     public static final double FIRST_PASSENGER_HORIZONTAL_OFFSET = 0.2;
     public static final double SECOND_PASSENGER_HORIZONTAL_OFFSET = -0.6;
 
+    // Used to keep second passenger close to the horse's body when the horse is rearing/jumping
+    public static final double SECOND_PASSENGER_REARING_HORIZONTAL_ADJUSTMENT = 0.3;
 
     public static void init()
     {
